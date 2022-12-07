@@ -68,7 +68,7 @@ protected:
   virtual void teardownSocket();
 
   // Helper functions
-  virtual int createConnection(int idx);
+  virtual int createConnection2(int idx);
 };
 
 }

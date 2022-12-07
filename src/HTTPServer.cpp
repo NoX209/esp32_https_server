@@ -146,7 +146,7 @@ void HTTPServer::loop() {
 
     // There is input
     if (FD_ISSET(_socket, &sockfds)) {
-      int socketIdentifier = createConnection(freeConnectionIdx);
+      int socketIdentifier = createConnection2(freeConnectionIdx);
 
       // If initializing did not work, discard the new socket immediately
       if (socketIdentifier < 0) {
@@ -158,7 +158,7 @@ void HTTPServer::loop() {
   }
 }
 
-int HTTPServer::createConnection(int idx) {
+int HTTPServer::createConnection2(int idx) {
   HTTPConnection * newConnection = new HTTPConnection(this);
   _connections[idx] = newConnection;
   return newConnection->initialize(_socket, &_defaultHeaders);
